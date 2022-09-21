@@ -25,14 +25,14 @@ jobs:
       id: simpleWithoutVersion
       with:
         packageJSON: test/package.json
-        packageJSONLock: test/package-lock.json
+        packageLockJSON: test/package-lock.json
 
     - name: diff without version
       uses: ./
       id: diffWithoutVersion
       with:
         packageJSON: test2/other_name.json
-        packageJSONLock: test2/other_name-lock.json
+        packageLockJSON: test2/other_name-lock.json
 
     - name: test
       if: steps.simpleWithoutVersion.outputs.cacheKey != steps.diffWithoutVersion.outputs.cacheKey
