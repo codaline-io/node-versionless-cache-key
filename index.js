@@ -1,6 +1,7 @@
 const core = require('@actions/core')
 const fs = require('fs')
 const crypto = require('crypto')
+const path = require('path')
 
 try {
   const packagePath = core.getInput('packageJSON')
