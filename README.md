@@ -27,7 +27,7 @@ Nothing special is happening. Just replacing the version in package-lock and get
 ## Example usage
 
 ```
-uses: codaline-io/dev-version@0.1.2
+uses: codaline-io/dev-version@0.0.1
 with:
   branch: feat/dev-branch
   filePath: ./package.json
