@@ -13,22 +13,22 @@ Nothing special is happening. Just replacing the version in package-lock and get
 2.   grab package name from package.json
 3.   search for that package name and its following version key in package-lock.json
 4.   replaces all whitespaces, tabs and newlines and the version number with empty string
-5.   Creates and outputs the new version
+5.   hashes the file content and output it as cache key
 
 ## Inputs
 
-- **branch**: The name of the branch to check if the current branch is master or a dev-branch. Default `master`.
-- **filePath**: The json file path or file name where the `version` field is present. Default `package.json`.
+- **packageJSON**: path to package.json file. Default `./package.json`.
+- **packageLockJSON**: path to package-lock.json file. Default `./package-lock.json`.
 
 ## Outputs
 
-- **version**: The generated version number.
+- **cacheKey**: The generated hash over package-lock.json without version number.
 
 ## Example usage
 
 ```
 uses: codaline-io/node-versionless-cache-key@0.0.1
 with:
-  branch: feat/dev-branch
-  filePath: ./package.json
+  packageJSON: custom-sub-folder/package-test.json
+  packageLockJSON: custom-sub-folder/my-lock-file.json
 ```
