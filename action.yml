@@ -1,0 +1,20 @@
+name: 'Node versionless cache key'
+description: 'Creates a hash of package-lock.json without the package version'
+branding:
+  color: orange
+  icon: airplay
+inputs:
+  packageJSON:
+    description: 'Path to package.json'
+    required: false
+    default: 'package.json'
+  packageLockJSON:
+    description: 'Path to package-lock.json'
+    required: false
+    default: 'package-lock.json'
+outputs:
+  cacheKey:
+    description: 'cache key of package-lock.json without version'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

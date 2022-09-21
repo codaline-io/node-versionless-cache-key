@@ -1,0 +1,41 @@
+name: test
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create test folder
+      run: |
+        mkdir test
+        mkdir test2
+
+    - name: Create package.json with different versions
+      run: |
+        echo '{"version": "1.0.0","name": "my-package"}' > test2/other_name.json
+        echo '{"version": "1.0.0","name": "my-package"}' > test2/other_name-lock.json
+        echo '{"version": "1.2.0","name": "my-package"}' > test/package.json
+        echo '{"version": "1.2.0","name": "my-package"}' > test/package-lock.json
+      
+    - name: simple without version
+      uses: ./
+      id: simpleWithoutVersion
+      with:
+        packageJSON: test/package.json
+        packageJSONLock: test/package-lock.json
+
+    - name: diff without version
+      uses: ./
+      id: diffWithoutVersion
+      with:
+        packageJSON: test2/other_name.json
+        packageJSONLock: test2/other_name-lock.json
+
+    - name: test
+      if: steps.simpleWithoutVersion.outputs.cacheKey != steps.diffWithoutVersion.outputs.cacheKey
+      run: |
+        echo "Received different cache keys for lock files"
+        exit 1

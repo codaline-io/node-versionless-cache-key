@@ -1,0 +1,37 @@
+{
+  "name": "node-versionless-cache-key",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codaline-io/node-versionless-cache-key.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "Cache",
+    "Node",
+    "JS",
+    "TS",
+    "Typescript",
+    "Javascript"
+  ],
+  "author": "codaline - Marcus Kirsch & Bengt Weiße GbR <mail@codaline.io>",
+  "description": "A github aciton to retrieve a cache key for npm without the version of the package",
+  "bugs": {
+    "url": "https://github.com/codaline-io/node-versionless-cache-key/issues"
+  },
+  "homepage": "https://github.com/codaline-io/node-versionless-cache-key",
+  "license": "MIT",
+  "scripts": {
+    "package": "ncc build index.js -o dist",
+    "lint": "eslint *.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.9.1"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3",
+    "eslint": "^8.23.1"
+  }
+}
