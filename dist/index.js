@@ -327,6 +327,7 @@ exports.issueCommand = issueCommand;
 const core = __webpack_require__(470)
 const fs = __webpack_require__(747)
 const crypto = __webpack_require__(417)
+const path = __webpack_require__(622)
 
 try {
   const packagePath = core.getInput('packageJSON')
