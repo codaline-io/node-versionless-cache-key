@@ -15,10 +15,10 @@ jobs:
 
     - name: Create package.json with different versions
       run: |
-        echo '{"version": "1.0.0","name": "my-package"}' > test2/other_name.json
-        echo '{"version": "1.0.0","name": "my-package"}' > test2/other_name-lock.json
-        echo '{"version": "1.2.0","name": "my-package"}' > test/package.json
-        echo '{"version": "1.2.0","name": "my-package"}' > test/package-lock.json
+        echo '{"name": "my-package", "version": "1.0.0"}' > test2/other_name.json
+        echo '{"name": "my-package", "version": "1.0.0"}' > test2/other_name-lock.json
+        echo '{"name": "my-package", "version": "1.2.0"}' > test/package.json
+        echo '{"name": "my-package", "version": "1.2.0"}' > test/package-lock.json
       
     - name: simple without version
       uses: ./
@@ -37,5 +37,6 @@ jobs:
     - name: test
       if: steps.simpleWithoutVersion.outputs.cacheKey != steps.diffWithoutVersion.outputs.cacheKey
       run: |
-        echo "Received different cache keys for lock files"
+        echo "Received different cache keys for lock files "
+        echo ${{steps.simpleWithoutVersion.outputs.cacheKey}} ${{steps.diffWithoutVersion.outputs.cacheKey}}
         exit 1
