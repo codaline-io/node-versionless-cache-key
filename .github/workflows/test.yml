@@ -15,10 +15,10 @@ jobs:
 
     - name: Create package.json with different versions
       run: |
-        echo '{"name": "my-package", "version": "1.0.0"}' > test2/other_name.json
-        echo '{"name": "my-package", "version": "1.0.0"}' > test2/other_name-lock.json
-        echo '{"name": "my-package", "version": "1.2.0"}' > test/package.json
-        echo '{"name": "my-package", "version": "1.2.0"}' > test/package-lock.json
+        echo '{"name": "my-package", "version": "1.0.0",}' > test2/other_name.json
+        echo '{"name": "my-package", "version": "1.0.0",}' > test2/other_name-lock.json
+        echo '{"name": "my-package", "version": "1.2.0",}' > test/package.json
+        echo '{"name": "my-package", "version": "1.2.0",}' > test/package-lock.json
       
     - name: simple without version
       uses: ./
