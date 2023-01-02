@@ -24,14 +24,22 @@
   "homepage": "https://github.com/codaline-io/node-versionless-cache-key",
   "license": "MIT",
   "scripts": {
-    "package": "ncc build index.js -o dist",
+    "package": "cross-env NODE_OPTIONS=--openssl-legacy-provider ncc build index.js -o dist",
     "lint": "eslint *.js"
   },
   "dependencies": {
-    "@actions/core": "^1.9.1"
+    "@actions/core": "^1.10.0"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
-    "eslint": "^8.23.1"
+    "cross-env": "^7.0.3",
+    "eslint": "^8.31.0"
+  },
+  "engines": {
+    "node": "18.12.1"
+  },
+  "volta": {
+    "node": "18.12.1",
+    "yarn": "3.3.1"
   }
 }
