@@ -1,6 +1,6 @@
 {
   "name": "node-versionless-cache-key",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -28,18 +28,17 @@
     "lint": "eslint *.js"
   },
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.1"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.3",
+    "@vercel/ncc": "^0.38.1",
     "cross-env": "^7.0.3",
-    "eslint": "^8.31.0"
+    "eslint": "^8.57.0"
   },
   "engines": {
-    "node": "18.12.1"
+    "node": "20.9.0"
   },
   "volta": {
-    "node": "18.12.1",
-    "yarn": "3.3.1"
+    "node": "20.9.0"
   }
 }
